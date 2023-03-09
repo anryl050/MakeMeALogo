@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateLogo = require('./lib/generateLogo');
+const {Circle, Square, Triangle} = require('./lib/shapes');
+const Shapes = require('./lib/shapes');
+
 const questions = [
     {
         type: 'input',
@@ -13,7 +15,7 @@ const questions = [
         message: 'Please enter the color for your Letters:',
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'shape',
         message: 'Please select the shape for your Logo:',
         choices: [
@@ -34,11 +36,11 @@ function init() {
     return inquirer.prompt(questions)
         .then((answers) => {
             // console.log(answers)
-            fs.writeFile('logo.svg', generateLogo(answers), err => {
+            fs.writeFile('./logo.svg', Shapes(answers), err => {
                 if (err) {
                     console.log('Could not save the file')
                 } else {
-                    console.log('Success; SVG file is added to the project!')
+                    console.log('Success: Generated logo.svg')
                 }
             })
         })
@@ -49,3 +51,5 @@ function init() {
 
 // Function call to initialize app
 init();
+
+
