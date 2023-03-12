@@ -38,7 +38,7 @@ GIVEN a command-line application that accepts user input
 The application must use Jest for running the unit tests. 
 
 ## Video Exaplanation
-https://watch.screencastify.com/v/1qKED08DzQr1SB5tVccS
+TBD
 
 
 ## Installation
