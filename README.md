@@ -52,6 +52,8 @@ TBD
 - Follow the prompts to input the information.
 - Once the script is done running, a new README.md file with all user inputs is populated in the "example" folder. 
 
+## Example SVG files
+
 
 ## Tests
 Unit Testing must be comepleted to validated the code. 
