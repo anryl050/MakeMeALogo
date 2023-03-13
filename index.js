@@ -1,9 +1,10 @@
+// Imports the properties of inquirer, File System (fs), and shapes.js.
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {Circle, Square, Triangle} = require('./lib/shapes');
+const {Circle, Triangle, Square} = require('./lib/shapes');
 
 
-//! class SVG that sets the svg elements, and renders them in the svg string. 
+// class with a contractor that has 4 methods (render(), setTextSvg(letters), setTextColorSvg(colorLetters), and  setColorSvg(colorShape)) for setting and rendering the logo color, text and text color.
 class SvgFile{
     constructor(){
         this.textSvg = ""
@@ -14,21 +15,21 @@ class SvgFile{
         return `
         <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.textSvg}${this.textColorSvg}${this.colorSvg}</svg>`
     }
-    // ! data is pulled from the shapes.js
+    // data for the 'letters' input to be populated in the SVG. 
     setTextSvg(letters){
         this.textSvg = letters.render()
     }
-    // ! data is pulled from the shapes.js
+    // data for the 'colorLetters' input to be populated in the SVG. 
     setTextColorSvg(colorLetters){
         this.textColorSvg = colorLetters.render()
     }
-    // ! data is pulled from the shapes.js
+    // data for the answers.letters to be populated in the SVG. 
     setColorSvg(colorShape){
         this.colorSvg = colorShape.render()
     }
 }
 
-// ! Array of Questions
+// Array of Questions
 const questions = [
     {
         type: 'input',
@@ -57,14 +58,17 @@ const questions = [
     },
 ];
 
-//! a function to initialize app
+// a function to initialize app
 const init = () => {
 
+    // a variable for empty SVG string.
     var svgString = "";
     
+    // a function to trigger the questions to promp 
         return inquirer.prompt(questions)
         .then((answers) => {
     
+        //a ternary if statement to verify the lenght of the character input. If the length is outside defined range, the application will stop running. 
          var  userTextInput = 
          (answers.letters.length > 0 && answers.letters.length < 4) ? answers.letters
          : (console.log("You entered incorrect number of character. The lenght of your input must be between 1 and 3 characters."), null);
@@ -72,13 +76,12 @@ const init = () => {
             return;
             }
         
-        // ! user inputs 
-            // userTextInput = answers.letters;
+        // converted user inputs
             userLettersColor = answers.colorLetters;
     	    userShapeColor = answers.colorShape;
             userFigureShape = answers["shapeType"];
     
-        // ! user shape selection
+        // user shape selection. once the shape is selected, it will create a new object instace for that shape.
             let userShape;
             userFigureShape === "Square" ? userShape = new Square()
             : userFigureShape === "Circle" ? userShape = new Circle()
@@ -87,18 +90,20 @@ const init = () => {
     
             userShape.setProperties(userShapeColor, userLettersColor, userTextInput,);
     
-        // !new svg file to store the user shape and text
+        // a new svg objects to store the user selections 
             var svg = new SvgFile();
         
             svg.setColorSvg(userShape);
             svgString = svg.render();
         
+            // function to write the information from  the new svg string into a logo.svg file
             fs.writeFile("./logo.svg", svgString, 
                 err => {
                     return (err) ? console.log('Could not save the file')
                     : console.log('Success: Generated logo.svg')
                     })
         })
+        // if the init() function does not run correctly, an error will appear in the console log. 
         .catch((error) => {
             console.log(error)
         })
