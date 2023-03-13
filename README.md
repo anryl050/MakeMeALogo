@@ -38,30 +38,34 @@ GIVEN a command-line application that accepts user input
 The application must use Jest for running the unit tests. 
 
 ## Video Exaplanation
-TBD
+[Demo Video](https://drive.google.com/file/d/13TIT1ZSCyBXLcWkdMefNdlPF_4Z96-W9/view)
 
 
 ## Installation
-- Install the node.js 
-- Then, install the npm package (type "npm init -y" in the VS terminal, press Enter and follow the prompts). It will generate the package.js file. 
-- Then, install the Inquirer package (type "npm i inquirer@8.2.4" in the VS terminal press Enter and follow the prompts). It will generate package-lock.json.
+- User needs to install [node.js (version 18.15.0 LTS)](https://nodejs.org/en/).
+- To use the application user has to list [inquirer (version 8.2.4)](https://www.npmjs.com/package/inquirer/v/8.2.4) and [jest (version 29.4.3)](https://jestjs.io/docs/29.4/getting-started) as dependencies in the package.json file.
+- To install inquirer and jest, the user needs to open the intergrated terminal and type npm install or npm i. This will isntall the inquirer and jest based on the specified version in the package.json file. 
+- Once inquirer and jest are installed, the user can run the application. 
 
 
 ## Usage
 - To run the application, type "npm start" in the VS terminal. 
 - Follow the prompts to input the information.
-- Once the script is done running, a new README.md file with all user inputs is populated in the "example" folder. 
+- Once the script is done running, a new logo.svg file with all user inputs is populated. To view the newly generated logo, the user must open it with a live server. 
 
 ## Example SVG files
+![image](https://user-images.githubusercontent.com/118693401/224606719-d3a0cbe4-52e3-4dcf-ac06-356cf8240da0.png)
+![image](https://user-images.githubusercontent.com/118693401/224606748-742fca12-ef80-41e3-a255-035e20fb7600.png)
+![image](https://user-images.githubusercontent.com/118693401/224606764-6a977b32-3f11-4258-a3e6-a4a4e3b56b8a.png)
 
 
 ## Tests
-Unit Testing must be comepleted to validated the code. 
+- Unit Testing must be comepleted to validated the code. Three test were created to verify that the SVG logo can be correctly rendered based for each shape 9Circle, triangle and Square) based on the inputs for logo's color, text and text's color.
+- To run the test, user must open intergrated terminal and type npm test. 
+
 
 ## Contribution
-None
+ASK BCS (for assisting with troubleshooting) 
 
 ## License
 Licensed under the [MIT](https://choosealicense.com/licenses/mit/) license.
-
-  
