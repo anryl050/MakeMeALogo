@@ -42,7 +42,7 @@ The application must use Jest for running the unit tests.
 
 
 ## Installation
-- User needs to install [node.js (version 18.15.0 LTS](https://nodejs.org/en/).
+- User needs to install [node.js (version 18.15.0 LTS)](https://nodejs.org/en/).
 - To use the application user has to list [inquirer (version 8.2.4)](https://www.npmjs.com/package/inquirer/v/8.2.4) and [jest (version 29.4.3)](https://jestjs.io/docs/29.4/getting-started) as dependencies in the package.json file.
 - To install inquirer and jest, the user needs to open the intergrated terminal and type npm install or npm i. This will isntall the inquirer and jest based on the specified version in the package.json file. 
 - Once inquirer and jest are installed, the user can run the application. 
